@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        SCADA Monitoring Pengolahan Air Bersih
+    </title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ANIMASI PEMANDANGAN
+===================================================== -->
+
+<section class="landscape">
+
+
+    <!-- MATAHARI -->
+
+    <div class="sun"></div>
+
+
+    <!-- AWAN -->
+
+    <div class="cloud cloud1">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <div class="cloud cloud2">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <div class="cloud cloud3">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <!-- SATU BUKIT -->
+
+    <div class="single-hill"></div>
+
+
+    <!-- SUNGAI -->
+
+    <div class="river">
+
+        <div class="water-line line1"></div>
+        <div class="water-line line2"></div>
+        <div class="water-line line3"></div>
+        <div class="water-line line4"></div>
+        <div class="water-line line5"></div>
+        <div class="water-line line6"></div>
+
+    </div>
+
+
+    <!-- ANGIN -->
+
+    <div class="wind wind1"></div>
+    <div class="wind wind2"></div>
+    <div class="wind wind3"></div>
+
+
+    <!-- DAUN TERBANG -->
+
+    <div class="leaf leaf1">🍃</div>
+    <div class="leaf leaf2">🍂</div>
+    <div class="leaf leaf3">🍃</div>
+    <div class="leaf leaf4">🍂</div>
+    <div class="leaf leaf5">🍃</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+
+    <!-- LOGO SMKN -->
+
+    <div class="logo-area left-logo">
+
+        <img src="logoSMK.png"
+             alt="Logo SMKN 1 Nglegok">
+
+    </div>
+
+    <!-- JUDUL -->
+
+    <div class="title-area">
+
+
+        <div class="school-label">
+
+            TEKNIK ELEKTRONIKA INDUSTRI
+
+        </div>
+
+
+        <h1>
+
+            RANCANG BANGUN SISTEM MONITORING
+            PENGOLAHAN AIR BERSIH
+
+        </h1>
+
+
+        <h2>
+
+            BERBASIS SCADA MENGGUNAKAN
+            KOMUNIKASI MODBUS RTU
+
+        </h2>
+
+
+    </div>
+
+
+
+    <!-- LOGO TEI -->
+
+    <div class="logo-area right-logo">
+
+        <img src="logoTEI.png"
+             alt="Logo Teknik Elektronika Industri">
+
+
+        <!-- STATUS ONLINE -->
+
+        <div class="online-status">
+
+            <span class="online-dot"></span>
+
+            <div>
+
+                <strong>
+                    SISTEM ONLINE
+                </strong>
+
+                <small>
+                    Monitoring aktif
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+    <a href="#dashboard">Dashboard</a>
+
+    <a href="#sensor">Sensor</a>
+
+    <a href="#proses">Proses</a>
+
+    <a href="#aktuator">Aktuator</a>
+
+    <a href="#alarm">Alarm</a>
+
+    <a href="#realtime">Real-Time</a>
+
+    <a href="#modbus">Modbus RTU</a>
+
+    <a href="#histori">Histori</a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<main class="container"
+      id="dashboard">
+
+
+
+<!-- =====================================================
+     STATUS SISTEM
+===================================================== -->
+
+<section class="system-status">
+
+
+    <div class="status-card">
+
+        <span>
+            STATUS SERVER
+        </span>
+
+        <strong class="green">
+            ONLINE
+        </strong>
+
+    </div>
+
+
+    <div class="status-card">
+
+        <span>
+            DATABASE
+        </span>
+
+        <strong class="green">
+            CONNECTED
+        </strong>
+
+    </div>
+
+
+    <div class="status-card">
+
+        <span>
+            MODBUS RTU
+        </span>
+
+        <strong class="blue">
+            ACTIVE
+        </strong>
+
+    </div>
+
+
+    <div class="status-card">
+
+        <span>
+            RS485
+        </span>
+
+        <strong class="green">
+            CONNECTED
+        </strong>
+
+    </div>
+
+
+    <div class="status-card">
+
+        <span>
+            UPDATE
+        </span>
+
+        <strong class="blue">
+            REAL-TIME
+        </strong>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     MONITORING SENSOR
+===================================================== -->
+
+<section class="section"
+         id="sensor">
+
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                MONITORING SENSOR
+            </h2>
+
+            <p>
+                Parameter kualitas dan kondisi air
+            </p>
+
+        </div>
+
+
+        <span class="sensor-count">
+
+            4 SENSOR AKTIF
+
+        </span>
+
+    </div>
+
+
+
+    <div class="sensor-grid">
+
+
+        <!-- PH -->
+
+        <div class="sensor-card">
+
+            <div class="sensor-icon ph">
+                pH
+            </div>
+
+            <div>
+
+                <h3>
+                    pH AIR
+                </h3>
+
+                <div class="sensor-value">
+
+                    <span id="phValue">
+                        7.02
+                    </span>
+
+                </div>
+
+                <small>
+                    pH
+                </small>
+
+                <p class="normal">
+                    ● NORMAL
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SUHU -->
+
+        <div class="sensor-card">
+
+            <div class="sensor-icon temp">
+                °C
+            </div>
+
+            <div>
+
+                <h3>
+                    SUHU AIR
+                </h3>
+
+                <div class="sensor-value">
+
+                    <span id="tempValue">
+                        28.4
+                    </span>
+
+                </div>
+
+                <small>
+                    °C
+                </small>
+
+                <p class="normal">
+                    ● NORMAL
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- LEVEL -->
+
+        <div class="sensor-card">
+
+            <div class="sensor-icon level">
+                LVL
+            </div>
+
+            <div>
+
+                <h3>
+                    LEVEL AIR
+                </h3>
+
+                <div class="sensor-value">
+
+                    <span id="levelValue">
+                        78
+                    </span>%
+
+                </div>
+
+
+                <div class="level-bar">
+
+                    <div id="levelBar"></div>
+
+                </div>
+
+
+                <p class="normal">
+                    ● NORMAL
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TURBIDITY -->
+
+        <div class="sensor-card">
+
+            <div class="sensor-icon turbidity">
+                NTU
+            </div>
+
+            <div>
+
+                <h3>
+                    KEKERUHAN AIR
+                </h3>
+
+                <div class="sensor-value">
+
+                    <span id="turbidityValue">
+                        2.35
+                    </span>
+
+                </div>
+
+                <small>
+                    NTU
+                </small>
+
+                <p class="normal">
+                    ● NORMAL
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MONITORING REAL-TIME
+===================================================== -->
+
+<section class="section"
+         id="realtime">
+
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                MONITORING DATA REAL-TIME
+            </h2>
+
+            <p>
+                Grafik perubahan parameter kualitas air
+            </p>
+
+        </div>
+
+
+        <span class="live-badge">
+            ● LIVE
+        </span>
+
+    </div>
+
+
+
+    <!-- SATU GRAFIK + PENJELASAN -->
+
+    <div class="realtime-panel">
+
+
+        <!-- GRAFIK -->
+
+        <div class="chart-container">
+
+            <div class="chart-header">
+
+                <h3>
+                    Grafik Monitoring Kualitas Air
+                </h3>
+
+                <span>
+                    DATA REAL-TIME
+                </span>
+
+            </div>
+
+
+            <canvas id="waterQualityChart">
+            </canvas>
+
+        </div>
+
+
+
+        <!-- PENJELASAN -->
+
+        <div class="realtime-info">
+
+
+            <h3>
+                INFORMASI PARAMETER
+            </h3>
+
+
+            <div class="parameter-info ph-info">
+
+                <div class="parameter-icon">
+                    pH
+                </div>
+
+                <div>
+
+                    <strong>
+                        pH Air
+                    </strong>
+
+                    <p>
+                        Menampilkan tingkat keasaman
+                        atau kebasaan air.
+                    </p>
+
+                    <b>
+                        Nilai: 7.02 pH
+                    </b>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="parameter-info temp-info">
+
+                <div class="parameter-icon">
+                    °C
+                </div>
+
+                <div>
+
+                    <strong>
+                        Suhu Air
+                    </strong>
+
+                    <p>
+                        Menampilkan kondisi temperatur
+                        air yang sedang dipantau.
+                    </p>
+
+                    <b>
+                        Nilai: 28.4 °C
+                    </b>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="parameter-info level-info">
+
+                <div class="parameter-icon">
+                    LVL
+                </div>
+
+                <div>
+
+                    <strong>
+                        Level Air
+                    </strong>
+
+                    <p>
+                        Menampilkan ketinggian air
+                        pada tangki penampungan.
+                    </p>
+
+                    <b>
+                        Nilai: 78 %
+                    </b>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="parameter-info turbidity-info">
+
+                <div class="parameter-icon">
+                    NTU
+                </div>
+
+                <div>
+
+                    <strong>
+                        Turbidity
+                    </strong>
+
+                    <p>
+                        Menampilkan tingkat kekeruhan
+                        air hasil pengolahan.
+                    </p>
+
+                    <b>
+                        Nilai: 2.35 NTU
+                    </b>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROSES PENGOLAHAN AIR
+===================================================== -->
+
+<section class="section"
+         id="proses">
+
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                PROSES PENGOLAHAN AIR
+            </h2>
+
+            <p>
+                Alur proses pengolahan air bersih
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="process">
+
+
+        <div class="process-box">
+
+            <span>01</span>
+
+            <strong>
+                AIR BAKU
+            </strong>
+
+            <small>
+                Input air
+            </small>
+
+        </div>
+
+
+        <div class="process-arrow">
+            ➜
+        </div>
+
+
+        <div class="process-box">
+
+            <span>02</span>
+
+            <strong>
+                PENAMPUNGAN
+            </strong>
+
+            <small>
+                Bak penampungan
+            </small>
+
+        </div>
+
+
+        <div class="process-arrow">
+            ➜
+        </div>
+
+
+        <div class="process-box">
+
+            <span>03</span>
+
+            <strong>
+                FILTRASI
+            </strong>
+
+            <small>
+                Penyaringan
+            </small>
+
+        </div>
+
+
+        <div class="process-arrow">
+            ➜
+        </div>
+
+
+        <div class="process-box">
+
+            <span>04</span>
+
+            <strong>
+                DISINFEKSI
+            </strong>
+
+            <small>
+                Pemurnian
+            </small>
+
+        </div>
+
+
+        <div class="process-arrow">
+            ➜
+        </div>
+
+
+        <div class="process-box">
+
+            <span>05</span>
+
+            <strong>
+                TANGKI BERSIH
+            </strong>
+
+            <small>
+                Air siap digunakan
+            </small>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AKTUATOR
+===================================================== -->
+
+<section class="section"
+         id="aktuator">
+
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                STATUS AKTUATOR
+            </h2>
+
+            <p>
+                Status perangkat pengendali sistem
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="actuator-grid">
+
+
+        <div class="actuator-card">
+
+            <div class="actuator-icon">
+                💧
+            </div>
+
+            <div>
+
+                <h3>
+                    Pompa Air Baku
+                </h3>
+
+                <span class="actuator-status on">
+                    ● ON
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="actuator-card">
+
+            <div class="actuator-icon">
+                ⚙️
+            </div>
+
+            <div>
+
+                <h3>
+                    Pompa Distribusi
+                </h3>
+
+                <span class="actuator-status on">
+                    ● ON
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="actuator-card">
+
+            <div class="actuator-icon">
+                🔵
+            </div>
+
+            <div>
+
+                <h3>
+                    Solenoid Valve
+                </h3>
+
+                <span class="actuator-status off">
+                    ● OFF
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="actuator-card">
+
+            <div class="actuator-icon">
+                🔔
+            </div>
+
+            <div>
+
+                <h3>
+                    Buzzer Alarm
+                </h3>
+
+                <span class="actuator-status off">
+                    ● OFF
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ALARM
+===================================================== -->
+
+<section class="section"
+         id="alarm">
+
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                ALARM & NOTIFIKASI
+            </h2>
+
+            <p>
+                Peringatan kondisi sistem
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="alarm-container">
+
+
+        <div class="alarm-normal">
+
+            <div class="alarm-symbol">
+                ✓
+            </div>
+
+            <div>
+
+                <h3>
+                    SISTEM NORMAL
+                </h3>
+
+                <p>
+                    Semua parameter kualitas air
+                    berada dalam batas normal.
+                </p>
+
+            </div>
+
+            <span class="alarm-time">
+                Baru saja
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MODBUS RTU
+===================================================== -->
+
+<section class="section"
+         id="modbus">
+
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                INFORMASI KOMUNIKASI MODBUS RTU
+            </h2>
+
+            <p>
+                Jalur komunikasi monitoring dan pengendalian
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="modbus-container">
+
+
+        <div class="modbus-device">
+
+            <div class="device-icon">
+                🔲
+            </div>
+
+            <strong>
+                ATMEGA32P
+            </strong>
+
+            <small>
+                Slave / Pengendali Lokal
+            </small>
+
+        </div>
+
+
+        <div class="modbus-line">
+            A(+) ⇄ B(-)
+        </div>
+
+
+        <div class="modbus-device">
+
+            <div class="device-icon">
+                📡
+            </div>
+
+            <strong>
+                RS485
+            </strong>
+
+            <small>
+                Modbus RTU
+            </small>
+
+        </div>
+
+
+        <div class="modbus-line">
+            ⇄
+        </div>
+
+
+        <div class="modbus-device">
+
+            <div class="device-icon">
+                🖥️
+            </div>
+
+            <strong>
+                ESP32 MASTER
+            </strong>
+
+            <small>
+                Gateway
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="communication-status">
+
+        <span class="pulse"></span>
+
+        Komunikasi Modbus RTU Aktif
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     HISTORI
+===================================================== -->
+
+<section class="section"
+         id="histori">
+
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                HISTORI DATA
+            </h2>
+
+            <p>
+                Rekaman monitoring sistem
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="history-table">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Waktu
+                    </th>
+
+                    <th>
+                        pH
+                    </th>
+
+                    <th>
+                        Suhu
+                    </th>
+
+                    <th>
+                        Level
+                    </th>
+
+                    <th>
+                        Kekeruhan
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        16:05:01
+                    </td>
+
+                    <td>
+                        7.02
+                    </td>
+
+                    <td>
+                        28.4 °C
+                    </td>
+
+                    <td>
+                        78%
+                    </td>
+
+                    <td>
+                        2.35 NTU
+                    </td>
+
+                    <td class="table-normal">
+                        NORMAL
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        16:04:01
+                    </td>
+
+                    <td>
+                        7.01
+                    </td>
+
+                    <td>
+                        28.3 °C
+                    </td>
+
+                    <td>
+                        77%
+                    </td>
+
+                    <td>
+                        2.40 NTU
+                    </td>
+
+                    <td class="table-normal">
+                        NORMAL
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        16:03:01
+                    </td>
+
+                    <td>
+                        7.03
+                    </td>
+
+                    <td>
+                        28.5 °C
+                    </td>
+
+                    <td>
+                        78%
+                    </td>
+
+                    <td>
+                        2.31 NTU
+                    </td>
+
+                    <td class="table-normal">
+                        NORMAL
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+
+        RANCANG BANGUN SISTEM MONITORING
+        PENGOLAHAN AIR BERSIH
+
+    </strong>
+
+
+    <p>
+
+        Berbasis SCADA Menggunakan
+        Komunikasi Modbus RTU
+
+    </p>
+
+
+    <span>
+
+        Teknik Elektronika Industri •
+        SMKN 1 Nglegok
+
+    </span>
+
+</footer>
+
+
+
+<!-- =====================================================
+     GRAFIK REAL-TIME
+===================================================== -->
+
+<script>
+
+const ctx =
+document.getElementById(
+    'waterQualityChart'
+);
+
+
+const waterQualityChart =
+new Chart(ctx, {
+
+    type: 'line',
+
+    data: {
+
+        labels: [
+            '16:00',
+            '16:01',
+            '16:02',
+            '16:03',
+            '16:04',
+            '16:05',
+            'Sekarang'
+        ],
+
+        datasets: [
+
+            {
+                label: 'pH',
+
+                data: [
+                    7.01,
+                    7.03,
+                    7.00,
+                    7.03,
+                    7.01,
+                    7.02,
+                    7.02
+                ],
+
+                borderWidth: 3,
+
+                tension: 0.4,
+
+                yAxisID: 'y'
+            },
+
+
+            {
+                label: 'Suhu (°C)',
+
+                data: [
+                    28.1,
+                    28.3,
+                    28.2,
+                    28.5,
+                    28.3,
+                    28.4,
+                    28.4
+                ],
+
+                borderWidth: 3,
+
+                tension: 0.4,
+
+                yAxisID: 'y1'
+            },
+
+
+            {
+                label: 'Level (%)',
+
+                data: [
+                    74,
+                    75,
+                    76,
+                    78,
+                    77,
+                    78,
+                    78
+                ],
+
+                borderWidth: 3,
+
+                tension: 0.4,
+
+                yAxisID: 'y1'
+            },
+
+
+            {
+                label: 'Turbidity (NTU)',
+
+                data: [
+                    2.50,
+                    2.45,
+                    2.40,
+                    2.31,
+                    2.40,
+                    2.35,
+                    2.35
+                ],
+
+                borderWidth: 3,
+
+                tension: 0.4,
+
+                yAxisID: 'y'
+            }
+
+        ]
+
+    },
+
+
+    options: {
+
+        responsive: true,
+
+        maintainAspectRatio: false,
+
+        interaction: {
+
+            mode: 'index',
+
+            intersect: false
+
+        },
+
+
+        plugins: {
+
+            legend: {
+
+                position: 'top'
+
+            }
+
+        },
+
+
+        scales: {
+
+            y: {
+
+                beginAtZero: false
+
+            },
+
+            y1: {
+
+                position: 'right',
+
+                beginAtZero: false,
+
+                grid: {
+
+                    drawOnChartArea: false
+
+                }
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
